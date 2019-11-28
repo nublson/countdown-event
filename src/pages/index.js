@@ -1,7 +1,13 @@
 import React from "react"
 
+//! Style
+import "../style/App.scss"
+
+//! Sections
+import Home from "../sections/home"
+
 const App = () => {
-    return <h1>Hello World</h1>
+    return <Home />
 }
 
 export default App
