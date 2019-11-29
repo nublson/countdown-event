@@ -1,14 +1,21 @@
 import React from "react"
 
+import CalendarIcon from "../components/Calendar"
+
 const Home = () => {
     return (
         <header className="header">
             <div className="box">
                 <div className="info">
                     <h1 className="info-title">
-                        Business Leaders <span>Conference 2020</span>
+                        Charles University Third Faculty of Medicine{" "}
+                        <span>Open Day 2020</span>
                     </h1>
                     <p className="info-date">
+                        <span className="info-date--icon">
+                            {" "}
+                            <CalendarIcon />{" "}
+                        </span>{" "}
                         04 January 2020 - Los Angeles CA
                     </p>
                     <div className="info-timer">

@@ -1,0 +1,36 @@
+.header {
+    height: 85vh;
+    position: relative;
+
+    .box {
+        max-width: $grid-width;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        transform: translateY(50%);
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .info {
+        & > *:not(:last-child) {
+            margin-bottom: 2.4rem;
+        }
+
+        &-timer {
+            width: 80%;
+
+            display: flex;
+
+            & > :not(:first-child) {
+                border-left: 1px solid rgba(0, 0, 0, 0.5);
+                padding-left: 1rem !important;
+            }
+
+            .time {
+                width: 25%;
+            }
+        }
+    }
+}
