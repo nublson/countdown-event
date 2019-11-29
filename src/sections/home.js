@@ -40,7 +40,7 @@ const Home = () => {
                             {" "}
                             <CalendarIcon />{" "}
                         </span>{" "}
-                        10 January 2020 - Prague CZE
+                        10 January 2020 - Prague CZ
                     </p>
                     <div className="info-timer">
                         <div className="time" id="days">
