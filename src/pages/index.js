@@ -5,9 +5,15 @@ import "../style/App.scss"
 
 //! Sections
 import Home from "../sections/home"
+import Footer from "../sections/footer"
 
 const App = () => {
-    return <Home />
+    return (
+        <>
+            <Home />
+            <Footer />
+        </>
+    )
 }
 
 export default App

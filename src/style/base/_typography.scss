@@ -31,6 +31,10 @@ body {
         line-height: 1.5;
         font-weight: 300;
         color: rgba($color-black, 0.8);
+
+        &--icon {
+            color: $color-primary;
+        }
     }
 
     .time {
@@ -56,4 +60,9 @@ body {
     &-control {
         font-size: $default-font-size;
     }
+}
+
+.copyright {
+    font-size: $default-font-size;
+    color: #ffffff;
 }
