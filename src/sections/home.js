@@ -1,8 +1,32 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 
 import CalendarIcon from "../components/Calendar"
 
 const Home = () => {
+    const calculateTimeLeft = () => {
+        const difference = +new Date("2020-01-10") - +new Date()
+        let timeLeft = {}
+
+        if (difference > 0) {
+            timeLeft = {
+                days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+                hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                minutes: Math.floor((difference / 1000 / 60) % 60),
+                seconds: Math.floor((difference / 1000) % 60),
+            }
+        }
+
+        return timeLeft
+    }
+
+    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
+
+    useEffect(() => {
+        setTimeout(() => {
+            setTimeLeft(calculateTimeLeft())
+        }, 1000)
+    })
+
     return (
         <header className="header">
             <div className="box">
@@ -16,28 +40,28 @@ const Home = () => {
                             {" "}
                             <CalendarIcon />{" "}
                         </span>{" "}
-                        04 January 2020 - Los Angeles CA
+                        10 January 2020 - Prague CZE
                     </p>
                     <div className="info-timer">
                         <div className="time" id="days">
-                            <p>22</p>
+                            <p>{timeLeft.days}</p>
                             <span>Days</span>
                         </div>
                         <div className="time" id="hours">
-                            <p>06</p>
+                            <p>{timeLeft.hours}</p>
                             <span>Hours</span>
                         </div>
                         <div className="time" id="minutes">
-                            <p>33</p>
+                            <p>{timeLeft.minutes}</p>
                             <span>Minutes</span>
                         </div>
                         <div className="time" id="seconds">
-                            <p>01</p>
+                            <p>{timeLeft.seconds}</p>
                             <span>Seconds</span>
                         </div>
                     </div>
                 </div>
-                <div className="form">
+                <div className="form-box">
                     <form className="form" action="#">
                         <h2>Join Event</h2>
                         <div className="form-group">
@@ -58,7 +82,7 @@ const Home = () => {
                             <input
                                 type="submit"
                                 value="Join now"
-                                className="btn btn-primary"
+                                className="btn"
                             />
                         </div>
                     </form>

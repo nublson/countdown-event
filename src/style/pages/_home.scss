@@ -3,13 +3,19 @@
     position: relative;
 
     .box {
+        background-color: #f4f4f4;
+        border-radius: 0.5rem;
+        width: 100%;
+        height: 50rem;
+        box-shadow: 6px 6px 11px 0px rgba(214, 214, 214, 1);
+
         max-width: $grid-width;
         margin: 0 auto;
         padding: 0 1.5rem;
         transform: translateY(50%);
 
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
     }
 
@@ -24,12 +30,74 @@
             display: flex;
 
             & > :not(:first-child) {
-                border-left: 1px solid rgba(0, 0, 0, 0.5);
+                border-left: 1px solid rgba($color-black, 0.5);
                 padding-left: 1rem !important;
             }
 
             .time {
                 width: 25%;
+            }
+        }
+    }
+
+    .form-box {
+        border-radius: 0.5rem;
+        background-color: #fff;
+        box-shadow: 6px 6px 11px 0px rgba(214, 214, 214, 1);
+
+        .form {
+            padding: 3rem;
+
+            h2 {
+                margin-bottom: 0.8rem;
+            }
+
+            &-group {
+                position: relative;
+                width: 100%;
+                display: block;
+                margin-bottom: $default-font-size;
+
+                label {
+                    display: inline-block;
+                    margin-bottom: 0.5rem;
+                    font-size: $default-font-size;
+
+                    input {
+                        margin-right: 0.5rem;
+                    }
+                }
+            }
+
+            &-control {
+                border: transparent;
+                border-bottom: 1px solid rgba($color-black, 0.5);
+                background-color: transparent;
+                font-size: $default-font-size;
+                padding: 1rem 0;
+                outline: 0;
+                height: 5.2rem;
+                box-shadow: none;
+
+                &::placeholder {
+                    color: $color-black;
+                }
+            }
+        }
+
+        .btn {
+            width: 100%;
+            padding: 1.5rem;
+            border: none;
+            color: #ffffff;
+            background-color: $color-primary;
+            cursor: pointer;
+            border-radius: 0.5rem;
+            box-shadow: transparent;
+            transition: 0.2s;
+
+            &:hover {
+                box-shadow: 6px 6px 11px 0px rgba(214, 214, 214, 1);
             }
         }
     }
