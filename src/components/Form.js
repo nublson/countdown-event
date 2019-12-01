@@ -7,21 +7,19 @@ const Form = () => {
             <div className="form-group">
                 <input
                     type="text"
-                    name="name"
                     className="form-control"
                     placeholder="Enter your Name"
                 />
             </div>
             <div className="form-group">
                 <input
-                    type="email"
-                    name="email"
+                    type="text"
                     className="form-control"
                     placeholder="Enter your Email"
                 />
             </div>
             <div className="form-group">
-                <button type="submit">Join now</button>
+                <input type="submit" value="Join now" className="btn" />
             </div>
         </form>
     )

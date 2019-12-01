@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 
 import CalendarIcon from "../components/Calendar"
+import Form from "../components/Form"
 
 const Home = () => {
     const calculateTimeLeft = () => {
@@ -62,30 +63,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="form-box">
-                    <form className="form" action="#">
-                        <h2>Join Event</h2>
-                        <div className="form-group">
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Enter your Name"
-                            />
-                        </div>
-                        <div className="form-group">
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Enter your Email"
-                            />
-                        </div>
-                        <div className="form-group">
-                            <input
-                                type="submit"
-                                value="Join now"
-                                className="btn"
-                            />
-                        </div>
-                    </form>
+                    <Form />
                 </div>
             </div>
         </header>
