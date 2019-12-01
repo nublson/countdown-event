@@ -1,28 +1,45 @@
 import React from "react"
+import { withFormik, Field, Form } from "formik"
 
-const Form = () => {
+const App = ({ isSubmitting }) => {
     return (
-        <form className="form" action="#">
+        <Form className="form">
             <h2>Join Event</h2>
             <div className="form-group">
-                <input
+                <Field
                     type="text"
+                    name="name"
                     className="form-control"
                     placeholder="Enter your Name"
                 />
             </div>
             <div className="form-group">
-                <input
-                    type="text"
+                <Field
+                    type="email"
+                    name="email"
                     className="form-control"
                     placeholder="Enter your Email"
                 />
             </div>
             <div className="form-group">
-                <input type="submit" value="Join now" className="btn" />
+                <button type="submit" disabled={isSubmitting} className="btn">
+                    Join now
+                </button>
             </div>
-        </form>
+        </Form>
     )
 }
 
-export default Form
+const MyForm = withFormik({
+    mapPropsToValues({ name, email }) {
+        return {
+            name: name || "",
+            email: email || "",
+        }
+    },
+    handleSubmit(values) {
+        console.log(values)
+    },
+})(App)
+
+export default MyForm
