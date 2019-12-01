@@ -1,0 +1,17 @@
+.btn {
+    width: 100%;
+    padding: 1.5rem;
+    border: none;
+    color: #ffffff;
+    font-size: 2rem;
+    background-color: $color-primary;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    box-shadow: transparent;
+    transition: 0.2s;
+
+    &:hover {
+        box-shadow: 6px 6px 11px 0px #d6d6d6;
+        background-color: darken($color: $color-primary, $amount: 10%);
+    }
+}

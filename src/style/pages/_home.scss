@@ -24,15 +24,13 @@
         &-timer {
             width: 80%;
 
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
 
             & > :not(:first-child) {
                 border-left: 1px solid rgba($color-black, 0.5);
                 padding-left: 1rem !important;
-            }
-
-            .time {
-                width: 25%;
+                margin-left: 1rem !important;
             }
         }
     }
@@ -84,23 +82,6 @@
                 &:focus {
                     border-bottom: 1px solid $color-primary;
                 }
-            }
-        }
-
-        .btn {
-            width: 100%;
-            padding: 1.5rem;
-            border: none;
-            color: #ffffff;
-            font-size: 2rem;
-            background-color: $color-primary;
-            cursor: pointer;
-            border-radius: 0.5rem;
-            box-shadow: transparent;
-            transition: 0.2s;
-
-            &:hover {
-                box-shadow: 6px 6px 11px 0px #d6d6d6;
             }
         }
     }
