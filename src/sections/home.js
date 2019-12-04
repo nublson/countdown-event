@@ -64,6 +64,11 @@ const Home = () => {
                 </div>
                 <div className="form-box">
                     <Form />
+                    <div className="text">
+                        <p>
+                            <span>03</span> people confirmed their presence.
+                        </p>
+                    </div>
                 </div>
             </div>
         </header>

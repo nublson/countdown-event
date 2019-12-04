@@ -40,6 +40,22 @@
         background-color: #fff;
         box-shadow: 6px 6px 11px 0px rgba(214, 214, 214, 1);
 
+        p {
+            width: 100%;
+            padding: 0 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: $default-font-size;
+            font-weight: 300;
+
+            span {
+                font-size: 2rem;
+                font-weight: 600;
+                color: $color-primary;
+                padding: 1rem;
+            }
+        }
+
         .form {
             padding: 3rem;
 
@@ -74,6 +90,7 @@
                 height: 5.2rem;
                 box-shadow: none;
                 transition: 0.2s;
+                width: 100%;
 
                 &::placeholder {
                     color: rgba($color-black, 0.5);
