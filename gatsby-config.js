@@ -1,9 +1,21 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
+require("dotenv/config")
 
 module.exports = {
-    plugins: [`gatsby-plugin-sass`],
+    plugins: [
+        `gatsby-plugin-sass`,
+        {
+            resolve: "gatsby-plugin-firebase",
+            options: {
+                features: {
+                    auth: false,
+                    database: true,
+                    firestore: true,
+                    storage: true,
+                    messaging: false,
+                    functions: false,
+                    performance: false,
+                },
+            },
+        },
+    ],
 }
