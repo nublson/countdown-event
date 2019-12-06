@@ -1,19 +1,36 @@
 import React, { useState } from "react"
 import { Formik, Form, Field } from "formik"
+import db from "../services/firebase"
 
 const MyForm = () => {
-    const [count, setCount] = useState(0)
+    const addUser = async (name, email) => {
+        await db.collection("users").add({
+            name,
+            email,
+        })
+    }
+
+    const getUser = async () => {
+        const { docs } = await db.collection("users").get()
+        const usersCount = docs.length
+
+        return usersCount
+    }
+
+    const [count] = useState(0)
+
     return (
         <div className="form-box">
             <Formik
                 initialValues={{ name: "", email: "" }}
                 onSubmit={(values, actions) => {
-                    setCount(count + 1)
+                    addUser(values.name, values.email)
+                    getUser()
                     actions.resetForm()
                     actions.setSubmitting(false)
                 }}
             >
-                {({ errors }) => (
+                {() => (
                     <Form className="form">
                         <h2>Join Event</h2>
                         <div className="form-group">
