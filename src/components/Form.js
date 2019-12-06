@@ -25,7 +25,6 @@ const MyForm = () => {
                 initialValues={{ name: "", email: "" }}
                 onSubmit={(values, actions) => {
                     addUser(values.name, values.email)
-                    getUser()
                     actions.resetForm()
                     actions.setSubmitting(false)
                 }}
