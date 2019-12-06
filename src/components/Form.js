@@ -12,9 +12,8 @@ const MyForm = () => {
 
     const getUser = async () => {
         const { docs } = await db.collection("users").get()
-        const usersCount = docs.length
-
-        return usersCount
+        const count = docs.length
+        return count
     }
 
     const [count] = useState(0)
@@ -25,6 +24,7 @@ const MyForm = () => {
                 initialValues={{ name: "", email: "" }}
                 onSubmit={(values, actions) => {
                     addUser(values.name, values.email)
+                    getUser()
                     actions.resetForm()
                     actions.setSubmitting(false)
                 }}
