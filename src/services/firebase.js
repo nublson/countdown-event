@@ -1,4 +1,4 @@
-import firebase from "firebase"
+import * as firebase from "firebase/app"
 import "firebase/firestore"
 
 const config = {
@@ -13,7 +13,10 @@ const config = {
 }
 
 //! Initialize Firebase
-firebase.initializeApp(config)
-const db = firebase.firestore()
+const App = async () => {
+    return (await !firebase.apps.length)
+        ? firebase.initializeApp(config).firestore()
+        : firebase.app().firestore()
+}
 
-export default db
+export default App
