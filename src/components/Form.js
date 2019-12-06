@@ -1,13 +1,5 @@
 import React, { useState } from "react"
 import { Formik, Form, Field } from "formik"
-import * as Yup from "yup"
-
-const YupSchema = Yup.object().shape({
-    name: Yup.string().required("Name and Email are required!"),
-    email: Yup.string()
-        .email("Please enter a valid email")
-        .required("Name and Email are required!"),
-})
 
 const MyForm = () => {
     const [count, setCount] = useState(0)
@@ -15,7 +7,6 @@ const MyForm = () => {
         <div className="form-box">
             <Formik
                 initialValues={{ name: "", email: "" }}
-                validationSchema={YupSchema}
                 onSubmit={(values, actions) => {
                     setCount(count + 1)
                     actions.resetForm()
@@ -47,11 +38,6 @@ const MyForm = () => {
                             <button type="submit" className="btn">
                                 Join now
                             </button>
-                            {(errors.name || errors.email) && (
-                                <p className="error">
-                                    {errors.name || errors.email}
-                                </p>
-                            )}
                         </div>
                         <p>
                             <span> {count} </span> people confirm their
