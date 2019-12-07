@@ -64,6 +64,16 @@ body {
 }
 
 .copyright {
-    font-size: $default-font-size;
+    font-size: 2rem;
     color: #ffffff;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: underline transparent;
+    transition: all 0.2s;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
