@@ -1,22 +1,26 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Formik, Form, Field } from "formik"
 import db from "../services/firebase"
 
+const addUser = async (name, email) => {
+    await db.collection("users").add({
+        name,
+        email,
+    })
+}
+
 const MyForm = () => {
-    const addUser = async (name, email) => {
-        await db.collection("users").add({
-            name,
-            email,
-        })
-    }
+    const [count, setCount] = useState([])
 
-    const getUser = async () => {
-        const { docs } = await db.collection("users").get()
-        const count = docs.length
-        return count
-    }
+    useEffect(() => {
+        async function getUser() {
+            const { docs } = await db.collection("users").get()
+            const response = await docs.length
+            setCount(response)
+        }
 
-    const [count] = useState(0)
+        getUser()
+    })
 
     return (
         <div className="form-box">
@@ -24,7 +28,6 @@ const MyForm = () => {
                 initialValues={{ name: "", email: "" }}
                 onSubmit={(values, actions) => {
                     addUser(values.name, values.email)
-                    getUser()
                     actions.resetForm()
                     actions.setSubmitting(false)
                 }}
