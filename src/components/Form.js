@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Formik, Form, Field } from "formik"
+import * as Yup from "yup"
+
 import db from "../services/firebase"
 
 const addUser = async (name, email) => {
@@ -8,6 +10,13 @@ const addUser = async (name, email) => {
         email,
     })
 }
+
+const signupSchema = Yup.object().shape({
+    name: Yup.string().required("Name must be required!"),
+    email: Yup.string()
+        .email("Your email is not valid!")
+        .required("Email must be required!"),
+})
 
 const MyForm = () => {
     const [count, setCount] = useState([])
@@ -26,13 +35,14 @@ const MyForm = () => {
         <div className="form-box">
             <Formik
                 initialValues={{ name: "", email: "" }}
+                validationSchema={signupSchema}
                 onSubmit={(values, actions) => {
                     addUser(values.name, values.email)
                     actions.resetForm()
                     actions.setSubmitting(false)
                 }}
             >
-                {() => (
+                {({ errors, touched }) => (
                     <Form className="form">
                         <h2>Join Event</h2>
                         <div className="form-group">
@@ -57,6 +67,12 @@ const MyForm = () => {
                             <button type="submit" className="btn">
                                 Join now
                             </button>
+                            {(errors || touched) && (
+                                <p className="error">
+                                    {" "}
+                                    {errors.name || errors.email}{" "}
+                                </p>
+                            )}
                         </div>
                         <p>
                             <span> {count} </span> people confirm their
