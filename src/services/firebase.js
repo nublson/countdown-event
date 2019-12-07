@@ -11,6 +11,4 @@ const config = {
 }
 
 //! Initialize Firebase
-export default !firebase.apps.length
-    ? firebase.initializeApp(config).firestore()
-    : firebase.app().firestore()
+export default firebase.initializeApp(config).firestore()
