@@ -10,5 +10,7 @@ const config = {
     messagingSenderId: process.env.GATSBY_FIREBASE_MESSAGING_SENDER_ID,
 }
 
+const App = firebase.initializeApp(config).firestore()
+
 //! Initialize Firebase
-export default firebase.initializeApp(config).firestore()
+export default App
