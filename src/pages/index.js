@@ -1,5 +1,7 @@
 import React from "react"
 
+import Helmet from "../config/helmet"
+
 //! Style
 import "../style/App.scss"
 
@@ -10,6 +12,7 @@ import Footer from "../sections/footer"
 const App = () => {
     return (
         <>
+            <Helmet />
             <Home />
             <Footer />
         </>
